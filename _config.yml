@@ -44,11 +44,13 @@ random_posts: 3
 
 widgets:
 - social
+- tag
+- tagcloud
 - post_content
 - category
-- tagcloud
 - recent_posts
 - archive
+
 # - friendly_link
 # - wechat
 

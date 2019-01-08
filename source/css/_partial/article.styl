@@ -350,6 +350,14 @@ $article-share-link
     background: color-google
     text-shadow: 0 1px darken(color-google, 20%)
 
+.article-share-telegram
+  @extend $article-share-link
+  &:before
+    content: "\f2c6"
+  &:hover
+    background: color-telegram
+    text-shadow: 0 1px darken(color-telegram, 20%)
+
 .article-gallery
   background: #000
   position: relative
