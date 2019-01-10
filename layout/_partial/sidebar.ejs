@@ -1,9 +1,11 @@
 <aside id="sidebar"<% if (theme.sidebar === 'bottom'){ %> class="outer"<% } %>>
   <% theme.widgets.forEach(function(widget){ %>
+    <% if (tag && (widget == 'tag' || widget == 'tagcloud')) return; %>
+    <% if (category && widget == 'category') return; %>
     <%- partial('_widget/' + widget,{index:index,
           archive:archive,
           postObj:postObj,
-          tag:tag,
+          tag:tag || category,
           category:category
           }) %>
   <% }) %>

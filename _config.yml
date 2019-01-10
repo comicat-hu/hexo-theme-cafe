@@ -1,7 +1,9 @@
 # 头部导航 Header
 menu:
-  首頁: /
-  歸檔: /archives
+  Home: /
+  Archives: /archives
+  Tags: /tags
+  Categories: /categories
   # 關於: /about
 rss: /atom.xml
 
