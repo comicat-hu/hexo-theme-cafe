@@ -1,5 +1,3 @@
-var extend = hexo.extend;
-var route = hexo.route;
 var path = require('path');
 var fs = require('fs');
 var filePath = path.join(__dirname, '../source/js/');
@@ -17,7 +15,7 @@ function dateFormat(dateString) {
 /**
  * 生成随机文章
  */
-extend.generator.register('random_post', function (locals, render, callback) {
+hexo.extend.generator.register('random_post', function (locals) {
     var posts = locals.posts;
     var SitePosts = [];
     posts.each(function (item) {
@@ -28,18 +26,19 @@ extend.generator.register('random_post', function (locals, render, callback) {
             uri: item.path,
             excerpt: getExcerpt(item.excerpt)
         });
-    })
-    fs.writeFile(filePath + 'posts.js', JSON.stringify(SitePosts), function (err) {
+    });
+    var postsJson = JSON.stringify(SitePosts);
+    fs.writeFile(filePath + 'posts.js', postsJson, function (err) {
         if (err) {
             console.error(err);
-            console.log('随机文章生成失败！');
+            console.log('random_post failed！');
         }
-        render();
-
     });
-    if (callback) {
-        callback();
-    }
+
+    return {
+        path: 'js/posts.js',
+        data: postsJson
+    };
 });
 function getExcerpt(excerpt) {
     /*    excerpt = excerpt.replace(/<h2 /g, '').replace(/<\/h2>/g, '')
