@@ -131,3 +131,7 @@ google_plus:
 fb_admins:
 fb_app_id:
 
+# 添加 Microsoft Clarity 分析配置
+microsoftClarity:
+  enable: true # 开启Microsoft Clarity
+  id: unsre2g7pj # 网站id
